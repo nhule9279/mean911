@@ -30,12 +30,12 @@ app.post('/account',function(req,res){
     var user = req.body.user;
     var pass = req.body.password;
     var name = req.body.name;
-    var age = req.bodu.age;
+    var age = req.body.age;
 
-    console.log('Chao ban ${name}, ${age} tuoi, tai khoan duoc tao cua ban la : username: {user} , password: ${password}');
+    console.log('Chao ban '+name+', '+ age+ ' tuoi, tai khoan duoc tao cua ban la : username: '+user +', password: '+pass);
     res.json({
         user: user,
-        pass: password,
+        password: pass,
         name:name,
         age:age
     });
