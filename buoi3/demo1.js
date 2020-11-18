@@ -1,39 +1,42 @@
-var express =  require("express");
+//express
+var express = require('express');
 var app = express();
 
-// body-parser
+//body parser
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 
+
 app.listen(3000);
+app.post('/xuly',function (req,res) {
+    var username = req.body.username;
 
-var mangSV = [
-    new SinhVien("Teo", 2000),
-    new SinhVien("Teo", 2000),
-    new SinhVien("Teo", 2000)
-];
+    res.json({
+        username: username
+    });
+})
 
-app.post("/xuly", function(req, res){
-    res.json( mangSV );
-});
-
-function SinhVien(hoten, namsinh){
-    this.HOTEN = hoten;
-    this.NAMSINH = namsinh;
+function sinhVien(params) {
+    
 }
 
-app.get("/demo", function(req, res){
-    //res.end();
-    res.redirect("http://google.com");
+app.get('demo',function(req,res){
+    // res.end(); //ket thuc route
+    res.redirect('http://google.com');
 });
 
-app.get("/a.js", function(req,res){
-    res.render("alert(123);");
-});
 
-app.post("/account", function(req, res){
-    //
-    //
-    // 
-    console.log("Chao ban Teo, ban 20 tuoi");
-});
+app.post('/account',function(req,res){
+    var user = req.body.user;
+    var pass = req.body.password;
+    var name = req.body.name;
+    var age = req.bodu.age;
+
+    console.log('Chao ban ${name}, ${age} tuoi, tai khoan duoc tao cua ban la : username: {user} , password: ${password}');
+    res.json({
+        user: user,
+        pass: password,
+        name:name,
+        age:age
+    });
+})
